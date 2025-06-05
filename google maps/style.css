@@ -1,0 +1,167 @@
+body{
+    font-family: Arial, sans-serif;
+    background: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+.map-inner{
+    max-width: 600px;
+    height: 400px; 
+    margin: 40px auto;
+    padding: 16px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+iframe{
+    border: 0;
+    border-radius: 4px;
+    width: 100%;
+    height: 100%;
+    flex: 1 1 auto;
+}
+
+.map-inner h2{
+    margin-top: 0;
+    margin-bottom: 8px;
+    font-size: 1.5em;
+    color: #1da1f2;
+    text-align: center
+}
+
+.map-inner p{
+    margin-top: 0;
+    margin-bottom: 16px;
+    color: #555;
+    text-align: center;
+    font-size: 1em;
+}
+
+.header-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: linear-gradient(90deg, #1da1f2 60%, #0d8ddb 100%);
+    padding: 12px 20px;
+    border-radius: 8px 8px 0 0;
+    margin: -16px -16px 16px -16px; /* overlap map-inner padding */
+    box-shadow: 0 2px 8px rgba(29,161,242,0.08);
+}
+.header-bar h2 {
+    color: #fff;
+    margin: 0;
+    font-size: 1.3em;
+    letter-spacing: 0.5px;
+}
+.header-bar .toggle-mode {
+    background: rgba(255,255,255,0.2);
+    color: #fff;
+    border: none;
+    border-radius: 20px;
+    padding: 6px 14px;
+    font-size: 1em;
+    transition: background 0.3s, color 0.3s;
+}
+.header-bar .toggle-mode:hover {
+    background: #fff;
+    color: #1da1f2;
+}
+
+body.dark-mode .header-bar {
+    background: linear-gradient(90deg, #23272b 60%, #1a1d20 100%);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.18);
+}
+body.dark-mode .header-bar h2 {
+    color: #1da1f2;
+}
+body.dark-mode .header-bar .toggle-mode {
+    background: rgba(29,161,242,0.2);
+    color: #1da1f2;
+}
+body.dark-mode .header-bar .toggle-mode:hover {
+    background: #1da1f2;
+    color: #fff;
+}
+
+
+/* Toggle button styling */
+.toggle-mode {
+    align-self: flex-end;
+    margin-bottom: 12px;
+    padding: 6px 14px;
+    border: none;
+    border-radius: 20px;
+    background: #e0e0e0;
+    color: #333;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background 0.3s, color 0.3s;
+}
+.toggle-mode:hover {
+    background: #1da1f2;
+    color: #fff;
+}
+
+/* Dark mode styles */
+body.dark-mode {
+    background: #181c20;
+}
+body.dark-mode .map-inner {
+    background: #23272b;
+    color: #e0e0e0;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.5);
+}
+body.dark-mode .map-inner h2 {
+    color: #1da1f2;
+}
+body.dark-mode .toggle-mode {
+    background: #333;
+    color: #e0e0e0;
+}
+body.dark-mode .toggle-mode:hover {
+    background: #1da1f2;
+    color: #fff;
+}
+
+/* Map container animation */
+.map-inner {
+    animation: fadeInUp 0.8s cubic-bezier(.39,.575,.565,1) both;
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Hover effect for the map container */
+.map-inner {
+    transition: box-shadow 0.3s, transform 0.3s;
+}
+.map-inner:hover {
+    box-shadow: 0 8px 24px rgba(29,161,242,0.15), 0 2px 8px rgba(0,0,0,0.08);
+    transform: translateY(-4px) scale(1.01);
+}
+
+/* Hover effect for the "View Larger Map" link */
+.map-inner small a {
+    color: #1da1f2;
+    text-decoration: none;
+    transition: color 0.2s, text-decoration 0.2s;
+    font-weight: 500;
+}
+.map-inner small a:hover {
+    color: #0d8ddb;
+    text-decoration: underline;
+}
